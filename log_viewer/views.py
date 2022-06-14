@@ -21,7 +21,8 @@ from log_viewer.utils import (get_log_files, readlines_reverse, JSONResponseMixi
 class TemplateView(_TemplateView):
 
     @method_decorator(login_required)
-    @method_decorator(user_passes_test(lambda u: u.is_superuser))
+    #todo: modify this to inspect log view rights for user/group
+    #@method_decorator(user_passes_test(lambda u: u.is_superuser))
     def dispatch(self, *args, **kwargs):
         return super(TemplateView, self).dispatch(*args, **kwargs)
 
